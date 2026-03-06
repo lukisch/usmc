@@ -1,4 +1,10 @@
+<p align="center">
+  <img src="ellmos-logo.jpg" alt="USMC logo" width="300">
+</p>
+
 # USMC -- United Shared Memory Client
+
+*The spring -- shared memory by [ellmos-ai](https://github.com/ellmos-ai).*
 
 **Status: Alpha (v0.1.0)**
 
