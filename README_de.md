@@ -1,24 +1,24 @@
 <p align="center">
-  <img src="assets/ellmos-logo.jpg" alt="USMC logo" width="300">
+  <img src="assets/ellmos-logo.jpg" alt="USMC Logo" width="300">
 </p>
 
 # USMC -- United Shared Memory Client
 
-**🇩🇪 [Deutsche Version](README_de.md)**
+**🇬🇧 [English Version](README.md)**
 
-*The spring -- shared memory by [ellmos-ai](https://github.com/ellmos-ai).*
+*Die Quelle -- Shared Memory von [ellmos-ai](https://github.com/ellmos-ai).*
 
 **Status: Alpha (v0.1.0)**
 
-Cross-agent memory sharing via standalone SQLite. No external dependencies.
+Agenten-übergreifende Speicherfreigabe über eigenständiges SQLite. Keine externen Abhängigkeiten.
 
-## Install
+## Installation
 
 ```bash
 pip install usmc
 ```
 
-## Quick Start
+## Schnellstart
 
 ### Client API
 
@@ -60,7 +60,7 @@ changes = client.get_changes_since("2026-02-28T00:00:00")
 
 ### High-Level API
 
-For quick, stateless access without managing client instances:
+Für schnellen, zustandslosen Zugriff ohne Client-Instanzen zu verwalten:
 
 ```python
 from usmc import api
@@ -132,7 +132,7 @@ usmc --db custom.db --agent my-agent status
 
 ## Multi-Agent
 
-Multiple agents can share the same DB:
+Mehrere Agenten können dieselbe Datenbank gemeinsam nutzen:
 
 ```python
 opus = USMCClient(db_path="shared.db", agent_id="opus")
@@ -143,50 +143,50 @@ sonnet.add_fact("project", "status", "completed", confidence=0.95)
 # Confidence merge: sonnet's higher confidence wins
 ```
 
-## Features
+## Funktionen
 
-- Standalone SQLite database (no external dependencies)
-- Confidence-based conflict resolution
-- Multi-agent support with agent_id tracking
-- Session management with handoff notes
-- Context generation for LLM prompts
-- Change tracking via `get_changes_since()`
-- High-level API for quick access
-- Full CLI for terminal use
-- Zero external dependencies (stdlib only)
+- Eigenständige SQLite-Datenbank (keine externen Abhängigkeiten)
+- Confidence-basierte Konfliktlösung
+- Multi-Agent-Unterstützung mit agent_id-Tracking
+- Session-Verwaltung mit Übergabenotizen
+- Kontextgenerierung für LLM-Prompts
+- Änderungsverfolgung über `get_changes_since()`
+- High-Level API für schnellen Zugriff
+- Vollständige CLI für Terminal-Nutzung
+- Null externe Abhängigkeiten (nur stdlib)
 
-## Database Schema
+## Datenbankschema
 
-- `usmc_facts` - Persistent facts with confidence scores
-- `usmc_working` - Temporary notes, context, scratchpad
-- `usmc_lessons` - Lessons learned with severity
-- `usmc_sessions` - Agent session tracking
+- `usmc_facts` -- Persistente Fakten mit Confidence-Scores
+- `usmc_working` -- Temporäre Notizen, Kontext, Scratchpad
+- `usmc_lessons` -- Gelernte Lektionen mit Schweregrad
+- `usmc_sessions` -- Agenten-Session-Tracking
 
-## Origin
+## Herkunft
 
-Developed from the SharedMemoryClient research prototype.
-Part of the BACH ecosystem but fully standalone.
+Entwickelt aus dem SharedMemoryClient-Forschungsprototyp.
+Teil des BACH-Ökosystems, aber vollständig eigenständig.
 
-## See Also: OpenClaw
+## Siehe auch: OpenClaw
 
-USMC gives any LLM a hippocampus -- structured long-term memory with facts, lessons, and cross-agent sharing. How does it compare to [OpenClaw](https://github.com/openclaw/openclaw) (274K+ stars)?
+USMC gibt jedem LLM einen Hippocampus -- strukturiertes Langzeitgedächtnis mit Fakten, Lektionen und agenten-übergreifendem Austausch. Wie schneidet es im Vergleich zu [OpenClaw](https://github.com/openclaw/openclaw) (274K+ Stars) ab?
 
 | | **USMC** | **OpenClaw** |
 |---|---|---|
-| **Focus** | Persistent structured memory for LLM agents | Full AI assistant with messaging gateway |
-| **Memory model** | 4 tables: Facts (confidence-scored), Lessons (severity), Working Memory, Sessions | Session-based chat history with `/compact` summarization |
-| **Multi-agent** | Shared SQLite DB with conflict resolution (highest confidence wins) | Multi-session with per-session isolation |
-| **Knowledge retention** | Permanent -- facts and lessons persist across sessions and agents | Ephemeral -- session history compacted or lost |
-| **Dependencies** | Zero -- pure Python stdlib | Node.js 22+, numerous npm packages |
-| **Use case** | Drop-in memory layer for any LLM project | Complete assistant platform |
-| **License** | MIT | MIT |
+| **Fokus** | Persistenter strukturierter Speicher für LLM-Agenten | Vollständiger KI-Assistent mit Messaging-Gateway |
+| **Speichermodell** | 4 Tabellen: Facts (Confidence-bewertet), Lessons (Schweregrad), Working Memory, Sessions | Sitzungsbasierter Chat-Verlauf mit `/compact`-Zusammenfassung |
+| **Multi-Agent** | Gemeinsame SQLite-DB mit Konfliktlösung (höchste Confidence gewinnt) | Multi-Session mit sitzungsbezogener Isolation |
+| **Wissenserhalt** | Permanent -- Fakten und Lektionen bleiben über Sessions und Agenten hinweg erhalten | Flüchtig -- Sitzungsverlauf wird komprimiert oder geht verloren |
+| **Abhängigkeiten** | Null -- reines Python stdlib | Node.js 22+, zahlreiche npm-Pakete |
+| **Anwendungsfall** | Drop-in-Speicherschicht für jedes LLM-Projekt | Vollständige Assistenten-Plattform |
+| **Lizenz** | MIT | MIT |
 
-**In short:** OpenClaw manages conversations. USMC manages knowledge. They are complementary -- USMC can serve as the memory backend for any agent framework, including OpenClaw-style systems.
+**Kurzfassung:** OpenClaw verwaltet Konversationen. USMC verwaltet Wissen. Sie ergänzen sich -- USMC kann als Speicher-Backend für jedes Agenten-Framework dienen, einschließlich OpenClaw-ähnlicher Systeme.
 
-## License
+## Lizenz
 
 MIT License -- Copyright (c) 2026 Lukas Geiger
 
-## Author
+## Autor
 
 Lukas Geiger (github.com/lukisch)
